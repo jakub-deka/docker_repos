@@ -17,6 +17,7 @@ RUN sudo apt-get -y install cuda-toolkit-12-4
 RUN sudo apt-get autoremove && sudo apt-get clean
 WORKDIR $HOME
 RUN rm -rf /home/$NB_USER/work/cuda_toolkit_download
+RUN sudo apt-get -y install ncdu
 
 # Back to the normal user
 USER $NB_UID
