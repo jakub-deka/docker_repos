@@ -29,6 +29,8 @@ RUN pip3 install torch torchvision torchaudio
 RUN pip3 install tensorflow[and-cuda]
 RUN pip3 install transformers
 RUN pip3 install polars
+RUN pip3 install accelerate
+RUN pip3 install flash_attn
 
 
 # Clean up
