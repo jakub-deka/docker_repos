@@ -5,7 +5,7 @@ LABEL version="1.0"
 
 USER root
 
-RUN apt-get update
+RUN apt-get update --yes
 RUN mkdir /home/$NB_USER/work/cuda_toolkit_download
 
 WORKDIR /home/$NB_USER/work/cuda_toolkit_download
