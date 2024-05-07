@@ -5,7 +5,7 @@ LABEL version="1.0"
 
 USER root
 
-RUN apt-get update --yes
+RUN apt-get update
 RUN mkdir /home/$NB_USER/work/cuda_toolkit_download
 
 WORKDIR /home/$NB_USER/work/cuda_toolkit_download
@@ -19,10 +19,12 @@ WORKDIR $HOME
 RUN rm -rf /home/$NB_USER/work/cuda_toolkit_download
 RUN sudo apt-get -y install ncdu
 RUN sudo apt-get autoremove && sudo apt-get clean
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Back to the normal user
+USER $NB_UID
+WORKDIR $HOME
 
 # Install additional packages for Python using pip
-USER ${NB_UID}
 RUN pip3 install torch torchvision torchaudio
 RUN pip3 install tensorflow[and-cuda]
 RUN pip3 install transformers
@@ -33,10 +35,3 @@ RUN pip3 install flash_attn
 
 # Clean up
 RUN pip3 cache purge
-
-RUN fix-permissions "${CONDA_DIR}" && \
-    fix-permissions "/home/${NB_USER}"
-
-# Back to normal user
-USER ${NB_UID}
-WORKDIR "${HOME}"
