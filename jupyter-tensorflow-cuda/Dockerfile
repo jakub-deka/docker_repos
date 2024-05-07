@@ -6,6 +6,9 @@ LABEL version="1.0"
 USER root
 
 RUN apt-get update --yes
+# Need to install pip again for some reason - not sure why...
+RUN sudo apt-get -y install python3-pip
+
 RUN mkdir /home/$NB_USER/work/cuda_toolkit_download
 
 WORKDIR /home/$NB_USER/work/cuda_toolkit_download
@@ -31,7 +34,6 @@ RUN pip3 install transformers
 RUN pip3 install polars
 RUN pip3 install accelerate
 RUN pip3 install flash_attn
-
 
 # Clean up
 RUN pip3 cache purge
