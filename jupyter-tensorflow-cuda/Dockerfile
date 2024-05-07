@@ -20,9 +20,6 @@ RUN rm -rf /home/$NB_USER/work/cuda_toolkit_download
 RUN sudo apt-get -y install ncdu
 RUN sudo apt-get autoremove && sudo apt-get clean
 
-# Clean up
-RUN pip3 cache purge
-
 # Back to the normal user
 USER ${NB_UID}
 WORKDIR "${HOME}"
