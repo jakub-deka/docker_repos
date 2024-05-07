@@ -2,16 +2,6 @@
 
 A collection of docker image files created by me to make my life easier.
 
-# Notes on image sizes
-
-Turns out that `pytorch` and `accelerate` add a lot of size to the image. Like a lot...
-
-| Image | Notes | Size |
-| --- | --- | --- |
-| Base image | | 8.83GB |
-| Plus cuda toolkit | Not a package. This is something from nvidia. | 16.46GB |
-| Base plus pytorch | 
-
 # Docker quickstart
 
 https://stackify.com/docker-build-a-beginners-guide-to-building-docker-images/
