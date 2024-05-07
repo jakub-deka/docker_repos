@@ -21,8 +21,8 @@ RUN sudo apt-get -y install ncdu
 RUN sudo apt-get autoremove && sudo apt-get clean
 
 # Back to the normal user
-USER $NB_UID
-WORKDIR $HOME
+USER ${NB_UID}
+WORKDIR "${HOME}"
 
 # Install additional packages for Python using pip
 RUN pip3 install torch torchvision torchaudio
