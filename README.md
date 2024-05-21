@@ -20,6 +20,14 @@ The image should have all you need to get tensorflow running locally on your nvi
 
 `docker run --name jd_py_cuda --gpus all jakub-deka/jupyter-tensorflow-cuda`
 
+If you want to run this image with a mount to a container file system, you need to run it like this:
+
+`docker run --name jd_py_cuda2 --gpus all --mount source=docker_vol,target=/home/jovyan/work jakub-deka/jupyter-tensorflow-cuda`
+
+Additionally, see this https://www.freecodecamp.org/news/docker-mount-volume-guide-how-to-mount-a-local-directory/ & https://stackoverflow.com/questions/23439126/how-to-mount-a-host-directory-in-a-docker-container. It specifies how to mount a folder into a docker container. For example:
+
+`docker run --name jd_py_cuda2 --gpus all -v "${PWD}/exposed_to_docker:/mnt/c/users/current_user/exposed_to_docker" jakub-deka/jupyter-tensorflow-cuda`
+
 This should get it running with the GPU being made available to the container. Exit the interactive window if needed and start the containers again.
 
 `docker start jd_py_cuda`
@@ -48,3 +56,8 @@ This should yield something like this
 ![alt text](image-1.png)
 
 You are good to go!
+
+----
+You need to be root? Run this!
+
+`docker exec -it --user root -e GRANT_SUDO=yes jd_py_cuda2 /bin/bash`
