@@ -13,6 +13,12 @@ RUN pipx ensurepath
 RUN apt-get install curl -y
 RUN apt-get install nano -y
 RUN apt-get install micro -y
+RUN apt-get install unzip -y
+
+# Install oh my posh because I am a nerd
+RUN curl -s https://ohmyposh.dev/install.sh | bash -s
+RUN touch ~/.bashrc
+RUN echo -e '\neval "$(oh-my-posh init bash)"' >> ~/.bashrc
 
 
-CMD ["/bin/sh"]
+CMD ["/bin/bash"]
