@@ -19,7 +19,6 @@ RUN apt-get install unzip -y
 WORKDIR "/home"
 RUN git clone https://github.com/danielmiessler/fabric.git
 WORKDIR "/home/fabric"
-RUN pipx install .
 
 # Install oh my posh because I am a nerd
 RUN curl -s https://ohmyposh.dev/install.sh | bash -s
