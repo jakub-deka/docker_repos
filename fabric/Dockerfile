@@ -15,9 +15,9 @@ RUN apt-get install nano -y
 RUN apt-get install micro -y
 RUN apt-get install unzip -y
 
-WORKDIR "~"
+WORKDIR "/home"
 RUN git clone https://github.com/danielmiessler/fabric.git
-WORKDIR "/fabric"
+WORKDIR "/home/fabric"
 
 # Install oh my posh because I am a nerd
 RUN curl -s https://ohmyposh.dev/install.sh | bash -s
