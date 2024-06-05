@@ -12,8 +12,7 @@ RUN apt-get update && apt-get install -y \
     curl \
     nano \
     micro \
-    unzip \
-    ffmpeg
+    unzip
 
 # Install oh my posh because I am a nerd
 RUN curl -s https://ohmyposh.dev/install.sh | bash -s
