@@ -24,8 +24,4 @@ WORKDIR "/home/fabric"
 RUN pipx install . && pipx ensurepath
 RUN touch ~/.bashrc && echo '\nexport PATH="$PATH:/root/.local/bin"' >> ~/.bashrc
 
-ADD * /home/
-RUN chmod +x /home/get_ollama_model.sh
-RUN curl -fsSL https://ollama.com/install.sh | sh
-
 CMD ["/bin/bash"]
