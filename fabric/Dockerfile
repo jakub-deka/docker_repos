@@ -12,7 +12,8 @@ RUN apt-get update && apt-get install -y \
     curl \
     nano \
     micro \
-    unzip
+    unzip \
+    ffmpeg
 
 # Install oh my posh because I am a nerd
 RUN curl -s https://ohmyposh.dev/install.sh | bash -s
@@ -23,5 +24,6 @@ RUN git clone https://github.com/danielmiessler/fabric.git
 WORKDIR "/home/fabric"
 RUN pipx install . && pipx ensurepath
 RUN touch ~/.bashrc && echo '\nexport PATH="$PATH:/root/.local/bin"' >> ~/.bashrc
+RUN source ~/.bashrc
 
 CMD ["/bin/bash"]
