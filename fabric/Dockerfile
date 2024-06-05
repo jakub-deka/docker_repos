@@ -23,6 +23,5 @@ RUN git clone https://github.com/danielmiessler/fabric.git
 WORKDIR "/home/fabric"
 RUN pipx install . && pipx ensurepath
 RUN touch ~/.bashrc && echo '\nexport PATH="$PATH:/root/.local/bin"' >> ~/.bashrc
-RUN source ~/.bashrc
 
 CMD ["/bin/bash"]
