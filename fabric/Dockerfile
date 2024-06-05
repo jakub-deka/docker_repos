@@ -10,4 +10,4 @@ RUN apt-get install pip -y
 RUN apt-get install pipx -y
 RUN pipx ensurepath
 
-CMD ["/bin/bash"]
+CMD ["/bin/sh"]
