@@ -27,6 +27,5 @@ RUN touch ~/.bashrc && echo '\nexport PATH="$PATH:/root/.local/bin"' >> ~/.bashr
 RUN curl -fsSL https://ollama.com/install.sh | sh
 ADD * /home/
 RUN chmod +x /home/get_ollama_model.sh
-RUN /home/get_ollama_model.sh
 
-CMD ["/bin/bash"]
+CMD ["/home/get_ollama_model.sh"]
