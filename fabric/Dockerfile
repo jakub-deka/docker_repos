@@ -28,6 +28,7 @@ RUN touch ~/.bashrc && echo 'export PATH="$PATH:/root/.local/bin"' >> ~/.bashrc
 RUN echo "alias pbcopy='xsel --input --clipboard'" >> ~/.bashrc
 RUN echo "alias pbpaste='xsel --output --clipboard'" >> ~/.bashrc
 RUN echo "alias fab='fabric -m llama3:latest --remoteOllamaServer host.docker.internal:11667'" >> ~/.bashrc
+RUN echo 'eval "$(oh-my-posh init bash --config ~/jandedobbeleer.omp.json)"' >> ~/.bashrc
 
 WORKDIR "/home"
 
