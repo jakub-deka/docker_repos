@@ -14,18 +14,18 @@ RUN apt-get update && apt-get install -y \
     micro \
     unzip \
     ffmpeg \
-    xclip
+    xsel
 
 # Install oh my posh because I am a nerd
 RUN curl -s https://ohmyposh.dev/install.sh | bash -s
-RUN touch ~/.bashrc && echo '\neval "$(oh-my-posh init bash)"' >> ~/.bashrc
+RUN touch ~/.bashrc && echo 'eval "$(oh-my-posh init bash)"' >> ~/.bashrc
 
 WORKDIR "/home"
 RUN git clone https://github.com/danielmiessler/fabric.git
 WORKDIR "/home/fabric"
 RUN pipx install . && pipx ensurepath
-RUN touch ~/.bashrc && echo '\nexport PATH="$PATH:/root/.local/bin"' >> ~/.bashrc
-RUN echo "\nalias pbcopy='xclip -selection clipboard'" >> ~/.bashrc
-RUN echo "\nalias pbpaste='xclip -selection clipboard -o'" >> ~/.bashrc
+RUN touch ~/.bashrc && echo 'export PATH="$PATH:/root/.local/bin"' >> ~/.bashrc
+RUN echo "alias pbcopy='xsel --input --clipboard'" >> ~/.bashrc
+RUN echo "alias pbpaste='xsel --output --clipboard'" >> ~/.bashrc
 
 CMD ["/bin/bash"]
