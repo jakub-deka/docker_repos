@@ -31,7 +31,7 @@ RUN echo "alias fab='fabric -m llama3:latest --remoteOllamaServer host.docker.in
 
 WORKDIR "/home"
 
-ADD ./fabric_host_startup.sh /tmp.
-RUN chmod +x /tmp/fabric_host_startup.sh
+ADD ./fabric_host_startup.sh //tmp/
+RUN chmod +x //tmp/fabric_host_startup.sh
 
 CMD ["/tmp/fabric_host_startup.sh"]
