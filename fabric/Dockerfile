@@ -27,5 +27,11 @@ RUN pipx install . && pipx ensurepath
 RUN touch ~/.bashrc && echo 'export PATH="$PATH:/root/.local/bin"' >> ~/.bashrc
 RUN echo "alias pbcopy='xsel --input --clipboard'" >> ~/.bashrc
 RUN echo "alias pbpaste='xsel --output --clipboard'" >> ~/.bashrc
+RUN echo "alias fab='fabric -m llama3:latest --remoteOllamaServer host.docker.internal::11667'"
 
-CMD ["/bin/bash"]
+WORKDIR "/home"
+
+ADD ./fabric_host_startup.sh /tmp.
+RUN chmod +x /tmp/fabric_host_startup.sh
+
+CMD ["/tmp/fabric_host_startup.sh"]
