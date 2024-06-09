@@ -14,7 +14,9 @@ RUN apt-get update && apt-get install -y \
     micro \
     unzip \
     ffmpeg \
-    xsel
+    xsel \
+    nodejs \
+    npm
 
 WORKDIR "/home"
 RUN git clone https://github.com/danielmiessler/fabric.git
