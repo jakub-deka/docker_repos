@@ -1,0 +1,6 @@
+export PATH="$PATH:/root/.local/bin"
+alias pbcopy='xsel --input --clipboard'
+alias pbpaste='xsel --output --clipboard'
+alias fab='fabric -m llama3:instruct --remoteOllamaServer http://llm_host:11434'
+alias fab_phi3='fabric -m phi3:latest --remoteOllamaServer http://llm_host:11434'
+alias dumpweb='lynx -dump'

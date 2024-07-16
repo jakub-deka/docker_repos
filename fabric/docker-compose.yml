@@ -1,0 +1,17 @@
+services:
+  fabric_app:
+    build: fabric_app
+    image: jakub-deka/fabric_app
+    command: sleep infinity
+  fabric_llm_host:
+    build: fabric_llm_host
+    image: jakub-deka/fabric_llm_host
+    container_name: fabric_llm_host
+    hostname: fabric_llm_host
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
